@@ -15,6 +15,7 @@
     "@solana-program/memo": "^0.7.0",
     "@solana/kit": "^2.2.6",
     "@solana/react": "^2.3.0",
+    "@wallet-standard/core": "^1.1.1",
     "@wallet-standard/react": "^1.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

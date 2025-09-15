@@ -7,6 +7,7 @@ import {
   type UiWalletAccount,
 } from "@wallet-standard/react";
 import { createSolanaRpc, createSolanaRpcSubscriptions } from "@solana/kit";
+import { StandardConnect } from "@wallet-standard/core";
 
 // Create RPC connection
 const RPC_ENDPOINT = "https://api.devnet.solana.com";
@@ -52,6 +53,7 @@ export function SolanaProvider({ children }: { children: React.ReactNode }) {
     return allWallets.filter(
       (wallet) =>
         wallet.chains?.some((c) => c.startsWith("solana:")) &&
+        wallet.features.includes(StandardConnect) &&
         wallet.features.includes("solana:signAndSendTransaction")
     );
   }, [allWallets]);
