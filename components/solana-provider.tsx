@@ -47,10 +47,12 @@ export function useSolana() {
 export function SolanaProvider({ children }: { children: React.ReactNode }) {
   const allWallets = useWallets();
 
-  // Filter for Solana wallets only
+  // Filter for Solana wallets only that support signAndSendTransaction
   const wallets = useMemo(() => {
-    return allWallets.filter((wallet) =>
-      wallet.chains?.some((c) => c.startsWith("solana:"))
+    return allWallets.filter(
+      (wallet) =>
+        wallet.chains?.some((c) => c.startsWith("solana:")) &&
+        wallet.features.includes("solana:signAndSendTransaction")
     );
   }, [allWallets]);
 
